@@ -6,8 +6,9 @@ string a = SpesialOffers.ReadFromConsoleClientName();
 int b = SpesialOffers.ReadFromConsoleAge();
 int c = SpesialOffers.ReadFromConsoleService();
 int d = SpesialOffers.ReadFromConsoleSum();
+int m = SpesialOffers.CheckingValue(b, c, d);
 
-SpesialOffers.WriteResult(a, b, c, d);
+SpesialOffers.WriteResult(a, m);
 
 
 int e = BankDeposit.ReadFromConsoleAmount();

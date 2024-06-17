@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ConsoleApp14;
 
 namespace ConsoleApp14
 {
-    internal class SpesialOffers
+    public static class SpesialOffers
     {
+
 
         public static string ReadFromConsoleClientName()
         {
@@ -40,46 +42,52 @@ namespace ConsoleApp14
 
             return sum;
         }
-        public static void WriteResult(string clientName, int age, int service, int sum)
+
+
+        public static int CheckingValue(int age, int service, int sum)
         {
+            int temp = 0;
+            bool share = service >= 3 || sum > 400000 || age > 60;
+            if (share == true) temp = 1;
+            else temp = 0;
 
-            bool c = age > 60;
-            bool share = service >= 3 || sum > 400000 || sum > 1000000;
+            return temp;
 
-
+        }
+        public static void WriteResult(string clientName, int temp)
+        {
 
             if (clientName == "Иван Иванов")
             {
-                if (share || c)
+                if (temp == 1)
                 { Console.WriteLine("Вам доступны акционные предложения!"); }
 
-                else { Console.WriteLine("Скидка для Вас не действует"); }
-                return;
+                else if (temp == 0)
+                { Console.WriteLine("Скидка для Вас не действует"); }
 
             }
-            else if (clientName == "Петр Петрович")
+            else if (clientName == "Петр Петров")
             {
-                if (share || c)
+                if (temp == 1)
                 { Console.WriteLine("Вам доступны акционные предложения!"); }
-                else
+                else if (temp == 0)
                 { Console.WriteLine("Скидка для Вас не действует"); }
-                return;
+
             }
 
-            else if (clientName == "Сергей Сергеевич")
+            else if (clientName == "Сергей Сергеев")
             {
 
-                if (share || c)
+                if (temp == 1)
                 { Console.WriteLine("Вам доступны акционные предложения!"); }
-                else
+                else if (temp == 0)
                 { Console.WriteLine("Скидка для Вас не действует"); }
-                return;
+
             }
             else { Console.WriteLine("Клиент не найден"); }
 
 
         }
-
     }
 
 
@@ -181,5 +189,5 @@ namespace ConsoleApp14
         }
     }
 
-}  
 
+}
